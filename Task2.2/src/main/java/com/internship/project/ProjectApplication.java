@@ -1,31 +1,27 @@
 package com.internship.project;
 
 import java.io.*;
-import java.net.URI;
-import java.net.URL;
-import java.util.Objects;
 
 public class ProjectApplication {
     public static void main(String[] args) throws IOException{
 
         InputStream input = ProjectApplication.class.getResourceAsStream("/input.txt");
 
-        File outputFile = new File("src/main/resources/output.txt");
+        File outputFile = new File("Task2.2/src/main/resources/output.txt");
         FileWriter fileWriter = new FileWriter(outputFile);
 
+        assert input != null;
         BufferedReader reader = new BufferedReader(new InputStreamReader(input));
         BufferedWriter writer = new BufferedWriter(fileWriter);
 
-        String[] arrayOfElementsPerLine = new String[3];
-        String[][] arrayOfFileElements = new String[100][3];
+        String[] arrayOfElementsPerLine;
         int firstNumber;
         int secondNumber;
         String operation;
 
-
         try {
 
-            for (int i = 0;;i++) {
+            while (true) {
 
                 String currentLine = reader.readLine();
 
@@ -34,48 +30,33 @@ public class ProjectApplication {
 
                 arrayOfElementsPerLine = currentLine.split(" ");
 
-                arrayOfFileElements[i][0] = arrayOfElementsPerLine[0];
-                arrayOfFileElements[i][1] = arrayOfElementsPerLine[1];
-
-                arrayOfFileElements[i][2] = arrayOfElementsPerLine[2];
-
-
-                firstNumber = Integer.parseInt(arrayOfFileElements[i][0]);
-                secondNumber = Integer.parseInt(arrayOfFileElements[i][1]);
-                operation = arrayOfFileElements[i][2];
-
+                firstNumber = Integer.parseInt(arrayOfElementsPerLine[0]);
+                secondNumber = Integer.parseInt(arrayOfElementsPerLine[1]);
+                operation = arrayOfElementsPerLine[2];
 
                 switch (operation) {
-                    case "+":
-                        writer.write(firstNumber + " + " + secondNumber + " = " + (firstNumber + secondNumber));
-                        writer.newLine();
-                        break;
-                    case "-":
-                        writer.write(firstNumber + " - " + secondNumber + " = " + (firstNumber - secondNumber));
-                        writer.newLine();
-                        break;
-                    case "*":
-                        writer.write(firstNumber + " * " + secondNumber + " = " + (firstNumber * secondNumber));
-                        writer.newLine();
-                        break;
-                    case "/":
-                        writer.write(String.format("%d / %d = %.2f", firstNumber, secondNumber, ((double) firstNumber / (double) secondNumber)));
-                        writer.newLine();
-                        break;
-                    default:
-                        writer.write("Choose a valid operation for this line!");
-                        writer.newLine();
-                        break;
+                    case "+" -> writing(String.format("%d %s %d = %d", firstNumber, "+", secondNumber, firstNumber + secondNumber), writer);
+                    case "-" -> writing(String.format("%d %s %d = %d", firstNumber, "-", secondNumber, firstNumber - secondNumber), writer);
+                    case "*" -> writing(String.format("%d %s %d = %d", firstNumber, "*", secondNumber, firstNumber * secondNumber), writer);
+                    case "/" -> writing(String.format("%d %s %d = %f", firstNumber, "/", secondNumber, ((double)firstNumber / (double)secondNumber)), writer);
+                    default -> writing("Choose a valid operation for this line!", writer);
                 }
 
             }
 
         } catch (NumberFormatException exception) {
-            writer.write("Enter a valid number on this line!");
-            writer.newLine();
+            writing("Enter a valid number on this line!", writer);
+        } finally {
+            reader.close();
+            writer.close();
+            input.close();
+            fileWriter.close();
         }
 
-        writer.close();
+    }
 
+    private static void writing(String output, BufferedWriter writer) throws IOException{
+        writer.write(output);
+        writer.newLine();
     }
 }
