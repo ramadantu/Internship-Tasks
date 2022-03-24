@@ -54,7 +54,7 @@ public class ProjectApplication {
 
     private static void writingFile(Queue<String> queue) throws IOException{
 
-        File outputFile = new File("Task3.1/src/main/resources/input.txt");
+        File outputFile = new File("Task3.2/src/main/resources/input.txt");
         FileWriter fileWriter = new FileWriter(outputFile);
         BufferedWriter writer = new BufferedWriter(fileWriter);
 
