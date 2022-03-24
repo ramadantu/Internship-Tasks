@@ -9,6 +9,14 @@ public class ProjectApplication {
 
         Queue<String> queue = new LinkedList<>();
 
+        readingFile(queue);
+
+        writingFile(queue);
+
+    }
+
+    private static void readingFile(Queue<String> queue) throws IOException{
+
         InputStream input = ProjectApplication.class.getResourceAsStream("/input.txt");
         assert input != null;
         InputStreamReader inputStreamReader = new InputStreamReader(input);
@@ -37,6 +45,14 @@ public class ProjectApplication {
             inputStreamReader.close();
             input.close();
         }
+    }
+
+    private static void writingFormat(String output, BufferedWriter writer) throws IOException{
+        writer.write(output);
+        writer.newLine();
+    }
+
+    private static void writingFile(Queue<String> queue) throws IOException{
 
         File outputFile = new File("Task3.1/src/main/resources/input.txt");
         FileWriter fileWriter = new FileWriter(outputFile);
@@ -63,12 +79,6 @@ public class ProjectApplication {
             writer.close();
             fileWriter.close();
         }
-
-    }
-
-    private static void writingFormat(String output, BufferedWriter writer) throws IOException{
-        writer.write(output);
-        writer.newLine();
     }
 
 }
