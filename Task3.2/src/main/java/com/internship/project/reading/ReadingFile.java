@@ -6,17 +6,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Objects;
 import java.util.Queue;
 
 public class ReadingFile {
-    public static void readingFile(Queue<String> queue) throws IOException {
+    public void readingFile(Queue<String> queue) throws IOException {
 
-        InputStream input = ProjectApplication.class.getResourceAsStream("/input.txt");
-        assert input != null;
-        InputStreamReader inputStreamReader = new InputStreamReader(input);
-        BufferedReader reader = new BufferedReader(inputStreamReader);
+        try (InputStream input = ProjectApplication.class.getResourceAsStream("/input.txt");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(input)))) {
 
-        try {
             while (true) {
                 String currentLine = reader.readLine();
 
@@ -32,12 +30,6 @@ public class ReadingFile {
                 queue.add(arrayOfElementsPerLine[2]);
             }
 
-        } catch (Exception exception) {
-            System.out.println("Problem in reading! Check your input format!");
-        } finally {
-            reader.close();
-            inputStreamReader.close();
-            input.close();
         }
     }
 }
