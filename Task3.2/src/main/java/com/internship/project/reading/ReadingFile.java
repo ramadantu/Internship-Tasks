@@ -15,11 +15,9 @@ public class ReadingFile {
         try (InputStream input = ProjectApplication.class.getResourceAsStream("/input.txt");
              BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(input)))) {
 
-            while (true) {
-                String currentLine = reader.readLine();
+            String currentLine;
 
-                if (currentLine == null)
-                    break;
+            while ((currentLine = reader.readLine()) != null) {
 
                 String[] arrayOfElementsPerLine;
 
@@ -28,6 +26,7 @@ public class ReadingFile {
                 queue.add(arrayOfElementsPerLine[1]);
                 queue.add(arrayOfElementsPerLine[0]);
                 queue.add(arrayOfElementsPerLine[2]);
+
             }
 
         }
