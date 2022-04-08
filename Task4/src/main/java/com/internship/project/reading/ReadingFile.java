@@ -11,20 +11,18 @@ import java.util.Objects;
 import java.util.Queue;
 
 public class ReadingFile {
-    public void readingFile(Queue<String> queue) throws IOException {
+    public void readingFile(Queue<String> inputQueue) throws IOException {
 
         try (InputStream input = ProjectApplication.class.getResourceAsStream("/input.txt");
              BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(input)))) {
 
-            while (true) {
-                String currentLine = reader.readLine();
+            String currentLine;
 
-                if (currentLine == null)
-                    break;
+            while ((currentLine = reader.readLine()) != null) {
 
-                String[] arrayOfElementsPerLine = currentLine.split(" ");
+                String[] arrayOfElementsPerLine = currentLine.substring(0, currentLine.indexOf("=")).split(" ");
 
-                Collections.addAll(queue, arrayOfElementsPerLine);
+                Collections.addAll(inputQueue, arrayOfElementsPerLine);
 
             }
 

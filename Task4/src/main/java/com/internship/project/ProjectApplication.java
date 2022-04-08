@@ -1,5 +1,6 @@
 package com.internship.project;
 
+import com.internship.project.notations.ReversePolishNotation;
 import com.internship.project.reading.ReadingFile;
 import com.internship.project.writing.WritingFile;
 
@@ -11,11 +12,13 @@ import java.util.Queue;
 public class ProjectApplication {
     public static void main(String[] args) throws IOException {
 
-        Queue<String> queue = new LinkedList<>();
+        Queue<String> inputQueue = new LinkedList<>();
+        new ReadingFile().readingFile(inputQueue);
 
-        new ReadingFile().readingFile(queue);
+        ReversePolishNotation reversePolishNotation = new ReversePolishNotation();
+        Queue<String> outputQueue = reversePolishNotation.apply(inputQueue);
 
-        new WritingFile().writingFile(queue);
+        new WritingFile().writingFile(outputQueue);
 
     }
 }
