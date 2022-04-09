@@ -1,6 +1,7 @@
 package com.internship.project;
 
-import com.internship.project.notations.ReversePolishNotation;
+import com.internship.project.calculating.RpnCalculator;
+import com.internship.project.converting.RpnConverter;
 import com.internship.project.reading.ReadingFile;
 import com.internship.project.writing.WritingFile;
 
@@ -13,12 +14,16 @@ public class ProjectApplication {
     public static void main(String[] args) throws IOException {
 
         Queue<String> inputQueue = new LinkedList<>();
-        new ReadingFile().readingFile(inputQueue);
+        Queue<String> outputQueue = new LinkedList<>();
+        new ReadingFile().readingFile(inputQueue, outputQueue);
 
-        ReversePolishNotation reversePolishNotation = new ReversePolishNotation();
-        Queue<String> outputQueue = reversePolishNotation.apply(inputQueue);
+        RpnConverter rpnConverter = new RpnConverter();
+        Queue<String> rpnQueue = rpnConverter.convert(inputQueue);
 
-        new WritingFile().writingFile(outputQueue);
+        RpnCalculator rpnCalculator = new RpnCalculator();
+        Queue<String> results = rpnCalculator.calculate(rpnQueue);
+
+        new WritingFile().writingFile(outputQueue, results);
 
     }
 }

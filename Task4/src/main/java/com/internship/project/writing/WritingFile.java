@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Queue;
 
 public class WritingFile {
-    public void writingFile(Queue<String> outputQueue) throws IOException {
+    public void writingFile(Queue<String> outputQueue, Queue<String> results) throws IOException {
 
         File outputFile = new File("Task4/src/main/resources/input.txt");
         FileWriter fileWriter = new FileWriter(outputFile);
@@ -12,7 +12,7 @@ public class WritingFile {
         try (fileWriter; BufferedWriter writer = new BufferedWriter(fileWriter)) {
             while (outputQueue.peek() != null) {
                 if (outputQueue.peek().equals("=")) {
-                    writer.write(outputQueue.remove() + " " + outputQueue.remove() + "\n");
+                    writer.write(outputQueue.remove() + " " + results.remove() + "\n");
                 } else {
                     writer.write(outputQueue.remove() + " ");
                 }

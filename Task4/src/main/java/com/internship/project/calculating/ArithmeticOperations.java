@@ -1,6 +1,6 @@
 package com.internship.project.calculating;
 
-public class Calculator {
+public class ArithmeticOperations {
 
     public enum Operation {
         ADDITION {
