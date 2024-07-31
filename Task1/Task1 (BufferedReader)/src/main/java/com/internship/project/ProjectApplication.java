@@ -32,7 +32,7 @@ public class ProjectApplication {
                     System.out.println(firstNumber + " * " + secondNumber + " = " + (firstNumber * secondNumber));
                     break;
                 case "/":
-                    System.out.println(String.format("%d / %d = %.2f", firstNumber, secondNumber, ((double) firstNumber / (double)secondNumber)));
+                    System.out.printf("%d / %d = %.2f%n", firstNumber, secondNumber, ((double) firstNumber / (double)secondNumber));
                     break;
                 default:
                     System.out.println("Choose a valid operation!");
