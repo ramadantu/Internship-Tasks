@@ -2,8 +2,8 @@
 .idea
 
 # Maven
-Task1/Task1 (BufferedReader)/target
-Task1/Task1 (Console)/target
+Task1.1/target
+Task1.2/target
 Task2.1/target
 Task2.2/target
 Task3.1/target
