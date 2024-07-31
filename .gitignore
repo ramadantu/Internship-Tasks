@@ -3,13 +3,21 @@
 
 # Maven
 Task1.1/target
+Task1.1/Task1.1.iml
 Task1.2/target
+Task1.2/Task1.2.iml
 Task2.1/target
+Task2.1/Task2.1.iml
 Task2.2/target
+Task2.2/Task2.2.iml
 Task3.1/target
+Task3.1/Task3.1.iml
 Task3.2/target
+Task3.2/Task3.2.iml
 Task4/target
+Task4/Task4.iml
 Task5.1/target
+Task5.1/Task5.1.iml
 
 # Gradle
 Task5.2/.gradle
