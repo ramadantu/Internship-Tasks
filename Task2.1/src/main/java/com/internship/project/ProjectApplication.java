@@ -7,6 +7,7 @@ public class ProjectApplication {
 
         InputStream input = ProjectApplication.class.getResourceAsStream("/input.txt");
 
+        assert input != null;
         BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 
         String[] arrayOfElementsPerLine;
