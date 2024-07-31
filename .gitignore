@@ -1,0 +1,20 @@
+# Intellij IDEA
+.idea
+
+# Maven
+Task1/Task1 (BufferedReader)/target
+Task1/Task1 (Console)/target
+Task2.1/target
+Task2.2/target
+Task3.1/target
+Task3.2/target
+Task4/target
+Task5.1/target
+
+# Gradle
+Task5.2/.gradle
+Task5.2/build
+Task5.2/gradle
+Task5.2/gradlew
+Task5.2/gradlew.bat
+Task5.2/Task5.2.iml
