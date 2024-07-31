@@ -9,7 +9,7 @@ public class ProjectApplication {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 
-        String[] arrayOfElementsPerLine = new String[3];
+        String[] arrayOfElementsPerLine;
         String[][] arrayOfFileElements = new String[100][3];
         int firstNumber;
         int secondNumber;
