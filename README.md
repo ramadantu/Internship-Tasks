@@ -1,4 +1,4 @@
-# Internship-Tasks
+# Basic Calculator
 
 ## Overview
 
