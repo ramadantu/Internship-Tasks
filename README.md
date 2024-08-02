@@ -28,7 +28,7 @@ This repository contains various projects developed during my internship at ArtW
 
 5. **Task 5: Advanced Mathematical Functions**
    - **Description:** Implemented advanced mathematical functions and further refined the calculator.
-   - **Features:** Trigonometric functions, logarithms, and additional mathematical operations.
+   - **Features:** Additional mathematical operations and packaging.
    - **Objective:** Expand the calculator's functionality to include advanced mathematics and ensure accurate computations.
 
 ## Installation
@@ -36,13 +36,13 @@ This repository contains various projects developed during my internship at ArtW
 1. Clone the repository:
 
 ```sh
-git clone https://github.com/ramadantu/Internship-Tasks.git
+git clone https://github.com/ramadantu/calculator-internship.git
 ```
    
 3. Navigate to the project directory:
 
 ```sh
-cd Internship-Tasks
+cd calculator-internship
 ```
     
 4. Compile the Java files:
